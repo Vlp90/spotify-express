@@ -1,20 +1,28 @@
 {{!-- 
-<a href="/artists">Return</a> --}}
-<a href="/">Home</a>
+<a href="/">Home</a> --}}
 
+{{>searchBar}}
+<div class="albumResults__container">
 
-    {{>searchBar}}
+    <h3>Resultats albums</h3>
 
-<h1>album</h1>
+    <div class="albumResults">
+        {{#each album}}
 
-{{#each album}}
-
-
-<div class='album-container'>
-    <img style="width: 50px" src="{{this.images.0.url}}" alt="Photo Artist" class="artist-img">
-    <h3>{{this.name}}</h3>
-    <a href="/tracks/{{this.id}}">Views Tracks</a>
+        
+            <a class='albumResults__info' href="/tracks/{{this.id}}">
+            <div class='albumResults__left'>
+                <img src="{{this.images.0.url}}" alt="Photo Artist" class="artist-img">
+                <div>
+                    <h3>{{this.name}}</h3>
+                    <h4>Album</h4>
+                </div>
+            </div>
+            <div class='albumResults__right'>
+            <p>></p>
+            </div>
+            </a>
+        
+        {{/each}}
+    </div>
 </div>
-
-
-{{/each}}

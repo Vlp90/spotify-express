@@ -10,7 +10,7 @@ main {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
- 
+
 
 }
 
@@ -89,6 +89,8 @@ body {
 } */
 
 
+/* ARTISTS */
+
 .artistResults__container {
 
   width: 100%;
@@ -98,7 +100,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
   margin: 0 auto;
-margin-top: 30px;
+  margin-top: 30px;
 }
 
 .artistResults__container h3 {
@@ -127,7 +129,7 @@ margin-top: 30px;
 }
 
 .artistResults__info a:hover {
-  background-color: red;
+  
   transition: 0.5s;
   transform: scale(1.08);
   filter: brightness(50%);
@@ -138,7 +140,7 @@ margin-top: 30px;
   margin-top: 10px;
   font-size: 16px;
   max-width: 300px;
-  
+
   color: white;
   text-align: center;
 }
@@ -157,3 +159,92 @@ margin-top: 30px;
   height: 200px;
   width: 200px;
 }
+
+/* ALBUM */
+
+.albumResults__container {
+
+  width: 100%;
+  max-width: 1200px;
+  
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.albumResults {
+  width: 100%;;
+}
+
+.albumResults a {
+  text-decoration: none;
+}
+
+.albumResults__info:hover {
+  transition: 0.5s;
+  transform: scale(1.08);
+  /* filter: brightness(50%); */
+  background-color: black;
+}
+
+.albumResults__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  width: 100%;
+  margin-bottom: 15px;
+
+}
+
+.albumResults__container h3 {
+
+  color: white;
+}
+
+.albumResults__info div {
+  /* flex: 0.9; */
+  /* width: 90%; */
+}
+
+.albumResults__right p {
+  /* flex: 0.1; */
+  /* width: 10%; */
+  display: flex;
+  justify-content: space-between;
+  text-align: right;
+  font-size: 25px;
+  margin: 0!important;
+  padding-right: 25px;
+  color: lightgray;
+  
+}
+
+.albumResults__left img{
+width: 75px;
+}
+
+.albumResults__left div {
+  display: flex;
+  flex-direction: column;
+}
+
+.albumResults__left h3{
+  margin-left: 10px;
+  font-size: 18px;
+  color: white;
+  }
+
+  .albumResults__left h4{
+    margin-left: 10px;
+    font-size: 16px;
+    color: lightgray;
+    }
+
+.albumResults__left {
+  display: flex;
+  align-items: center;
+}
+
