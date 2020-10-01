@@ -1,0 +1,17 @@
+{{!-- 
+<a href="/artists">Return</a> --}}
+<a href="/">Home</a>
+
+<h1>album</h1>
+
+{{#each album}}
+
+
+<div class='album-container'>
+    <img style="width: 50px" src="{{this.images.0.url}}" alt="Photo Artist" class="artist-img">
+    <h3>{{this.name}}</h3>
+    <a href="/tracks/{{this.id}}">Views Tracks</a>
+</div>
+
+
+{{/each}}

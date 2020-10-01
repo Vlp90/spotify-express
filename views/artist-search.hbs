@@ -1,0 +1,24 @@
+<a href="/">Return</a>
+
+<h1>
+    Artist Search
+    
+</h1>
+
+ <div class="row">
+
+     {{!-- {{#each artists.items}}
+     {{this.image}}
+<h3>{{this.name}} </h3>
+{{artist.images.0.url}}
+{{/each}} --}}
+            {{#each artists.items}}
+            <div class='artist-container'>
+                <img style="width: 50px" src="{{this.images.0.url}}" alt="Photo Artist" class="artist-img">
+                <div class="artist-info-container">
+                    <h3>{{this.name}}</h3>
+                    <a href="/albums/{{this.id}}">Views Albums</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
