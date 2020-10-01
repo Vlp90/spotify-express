@@ -1,25 +1,20 @@
-<a href="/">Return</a>
+    {{>searchBar}}
+<div class="artistResults__container">
+    {{!-- <a href="/">Return</a> --}}
+    <h3>
+        Meilleurs resultats
+    </h3>
 
-<h1>
-    Artist Search
-    
-</h1>
-
- <div class="row">
-
-     {{!-- {{#each artists.items}}
-     {{this.image}}
-<h3>{{this.name}} </h3>
-{{artist.images.0.url}}
-{{/each}} --}}
-            {{#each artists.items}}
-            <div class='artist-container'>
-                <img style="width: 50px" src="{{this.images.0.url}}" alt="Photo Artist" class="artist-img">
-                <div class="artist-info-container">
-                    <h3>{{this.name}}</h3>
-                    <a href="/albums/{{this.id}}">Views Albums</a>
-                    
-                </div>
-            </div>
-            {{/each}}
+    <div class="artistResults">
+        {{#each artists.items}}
+        <div class='artistResults__info'>
+            <a href="/albums/{{this.id}}">
+                <img class='artistResults__infoImage' src="{{this.images.0.url}}" alt="Photo Artist" class="artist-img">
+            </a>
+            <h3>{{this.name}}</h3>
+            <h4>Artiste</h4>
         </div>
+        {{/each}}
+
+    </div>
+</div>

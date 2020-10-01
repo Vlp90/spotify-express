@@ -3,10 +3,12 @@ require("dotenv").config();
 const express = require("express");
 const hbs = require("hbs");
 const SpotifyWebApi = require("spotify-web-api-node");
+const app = express();
 
 const spotifyApi = new SpotifyWebApi({
   clientId: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
+  // redirectUri: process.env.redirectUri,
 });
 
 // Retrieve an access token
@@ -17,40 +19,25 @@ spotifyApi
     console.log("Something went wrong when retrieving an access token", error)
   );
 
-const app = express();
+  app.set("view engine", "hbs");
+  app.set("views", __dirname + "/views");
+  app.use(express.static("public"));
+  hbs.registerPartials(__dirname + "/views/partials");
+  app.use(express.urlencoded({ extended: false }));
+  app.use(express.json());
 
-app.set("view engine", "hbs");
-app.set("views", __dirname + "/views");
-app.use(express.static(__dirname + "/public"));
 
 // setting the spotify-api goes here:
 
 // Our routes go here:
 
 // app.get("/", (req, res) => {
-//     spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE').then(
-//         function(data) {
-//           console.log('Artist albums', data.body);
-//           res.render("index.hbs");
-//         },
-//         function(err) {
-//           console.error(err);
-//         }
-//       );
-
+//   res.render("login");
 // });
 
-// app.get("/", (req, res, next) => {
-//   spotifyApi
-//     .getArtistAlbums("43ZHCT0cAZBISjO8DG9PnE")
-//     .then((data) => {
-//       //   console.log(data)
-//       res.render("index", { data });
-//     })
-//     .catch(next);
-// });
-
-app.get('/', (req, res) => { res.render('index')})
+app.get("/", (req, res) => {
+  res.render("index");
+});
 
 app.get("/artists", (req, res) => {
   spotifyApi
@@ -80,8 +67,8 @@ app.get("/tracks/:albumId", (req, res, next) => {
   spotifyApi
     .getAlbumTracks(req.params.albumId)
     .then((data) => {
-      console.log("DATA", data);
-      console.log("DATA BODY", data.body);
+      // console.log("DATA", data);
+      // console.log("DATA BODY", data.body);
       console.log("DATA BODY ITEMS", data.body.items);
       res.render("tracks", { tracks: data.body.items });
     })
@@ -89,18 +76,6 @@ app.get("/tracks/:albumId", (req, res, next) => {
       console.log("The error while searching tracks occurred: ", err)
     );
 });
-
-// app.get("/tracks/:id", (req, res, next) => {
-//   spotifyApi
-//     .getTracks(req.params.albumId, console.log(req.params))
-//     .then((data) => {
-//       console.log(data);
-//       res.render("tracks", { tracks: data.body.items });
-//     })
-//     .catch((err) =>
-//       console.log("The error while searching tracks occurred: ", err)
-//     );
-// });
 
 app.listen(5000, () =>
   console.log("My Spotify project running on port 5000 🎧 🥁 🎸 🔊")
