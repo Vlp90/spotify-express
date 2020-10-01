@@ -1,12 +1,40 @@
-<h1>Albums</h1>
+{{>searchBar}}
+<div class="tracksResults__container">
+
+    <h3>Resultats Tracks</h3>
 
 
-    {{>searchBar}}
 
-{{#each tracks}}
+    {{!-- {{#each tracks}}
 <figure>
     <p>Listen to {{this.name}}</p>
-    {{!-- <audio controls="" src={{this.preview_url}} class="audio-size"></audio> --}}
-    <audio controls="" src="https://p.scdn.co/mp3-preview/3eb16018c2a700240e9dfb8817b6f2d041f15eb1?cid=774b29d4f13844c495f206cafdad9c86">Play</audio></div>
+    <audio controls="" src={{this.preview_url}} class="audio-size"></audio>
+    <audio controls=""
+        src="https://p.scdn.co/mp3-preview/3eb16018c2a700240e9dfb8817b6f2d041f15eb1?cid=774b29d4f13844c495f206cafdad9c86">Play</audio>
+    </div>
 </figure>
-{{/each}}
+{{/each}} --}}
+
+    <div class="tracksResults">
+        {{#each tracks}}
+        <div class="tracksResults__track">
+
+            <div class="tracksResults__trackLeft">
+                <img src="https://images.pexels.com/photos/5374632/pexels-photo-5374632.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+                    alt="" />
+                <div>
+                    <h1>{{this.name}}</h1>
+                    <h3>{{msToSeconds this.duration_ms}}</h3>
+                </div>
+            </div>
+
+            <div class="tracksResults__trackRight">
+              <audio controls=""
+                    src="https://p.scdn.co/mp3-preview/3eb16018c2a700240e9dfb8817b6f2d041f15eb1?cid=774b29d4f13844c495f206cafdad9c86">Play</audio> 
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+</div>
+</div>
