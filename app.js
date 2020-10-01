@@ -40,15 +40,17 @@ app.use(express.static(__dirname + "/public"));
 
 // });
 
-app.get("/", (req, res, next) => {
-  spotifyApi
-    .getArtistAlbums("43ZHCT0cAZBISjO8DG9PnE")
-    .then((data) => {
-      //   console.log(data)
-      res.render("index", { data });
-    })
-    .catch(next);
-});
+// app.get("/", (req, res, next) => {
+//   spotifyApi
+//     .getArtistAlbums("43ZHCT0cAZBISjO8DG9PnE")
+//     .then((data) => {
+//       //   console.log(data)
+//       res.render("index", { data });
+//     })
+//     .catch(next);
+// });
+
+app.get('/', (req, res) => { res.render('index')})
 
 app.get("/artists", (req, res) => {
   spotifyApi
@@ -67,21 +69,38 @@ app.get("/albums/:artistId", (req, res, next) => {
     .getArtistAlbums(req.params.artistId)
     .then((data) => {
       console.log(data.body.items);
-      res.render("album", { album: data.body.items});
+      res.render("album", { album: data.body.items });
     })
     .catch((err) =>
       console.log("The error while searching artists occurred: ", err)
     );
 });
 
-app.get('/tracks/:albumId' , (req,res,next) => {
-    spotifyApi.getAlbumTracks(req.params.albumId)
-  .then(data => {
-      console.log(data.body.items)
-    res.render('tracks', { tracks: data.body.items});
-  })
-  .catch(err => console.log('The error while searching tracks occurred: ', err));
-  })
+app.get("/tracks/:albumId", (req, res, next) => {
+  spotifyApi
+    .getAlbumTracks(req.params.albumId)
+    .then((data) => {
+      console.log("DATA", data);
+      console.log("DATA BODY", data.body);
+      console.log("DATA BODY ITEMS", data.body.items);
+      res.render("tracks", { tracks: data.body.items });
+    })
+    .catch((err) =>
+      console.log("The error while searching tracks occurred: ", err)
+    );
+});
+
+// app.get("/tracks/:id", (req, res, next) => {
+//   spotifyApi
+//     .getTracks(req.params.albumId, console.log(req.params))
+//     .then((data) => {
+//       console.log(data);
+//       res.render("tracks", { tracks: data.body.items });
+//     })
+//     .catch((err) =>
+//       console.log("The error while searching tracks occurred: ", err)
+//     );
+// });
 
 app.listen(5000, () =>
   console.log("My Spotify project running on port 5000 🎧 🥁 🎸 🔊")
