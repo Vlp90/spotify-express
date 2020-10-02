@@ -4,8 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www",
+    "start-dev": "nodemon ./bin/www",
+    "dev": "nodemon ./bin/www -e .hbs,.js"
   },
   "keywords": [],
   "author": "",
