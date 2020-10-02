@@ -98,8 +98,9 @@ main {
   max-width: 1200px;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  /* align-items: center; */
+  /* flex-wrap: wrap; */
   margin: 0 auto;
   margin-top: 30px;
 }
@@ -116,7 +117,7 @@ main {
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   /* margin-top: 30px;
   margin-bottom: 30px; */
 }

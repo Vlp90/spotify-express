@@ -9,12 +9,11 @@
         Meilleurs resultats
     </h3>
 
-    <div class="artistResults">
+    <div class="artistResults row">
         {{#each artists.items}}
-        <div class='artistResults__info'>
+        <div class='artistResults__info col-md-3 col-sm-6'>
             <a href="/albums/{{this.id}}">
                 <img class='artistResults__infoImage' src="{{imageEmpty this.images.0.url}}" alt="Photo Artist" class="artist-img">
-
             </a>
             <h3>{{this.name}}</h3>
             <h4>Artiste</h4>
