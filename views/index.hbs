@@ -1,7 +1,6 @@
 <div class="home">
 
-
-    <div class=' container-md '>
+    {{!-- <div class=' container-md '>
         <div class='search-position d-flex align-content-center justify-content-center flex-wrap'>
             <form action="/artists" method="GET">
                 <h1 class='title-home'>Welcome on Spotify</h1>
@@ -13,8 +12,25 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div> --}}
 
-   
+
+    <form action="/artists" method="GET">
+
+
+
+        <h1 class='title-home'>Welcome on Spotify</h1>
+        <div class="home__container">
+            <div class="home__search">
+
+                <input name="artist" placeholder="Search for Artists, Songs, or Podcasts " type="text" />
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </div>
+
+
+    </form>
+
+
 
 </div>
