@@ -19,23 +19,29 @@ spotifyApi
     console.log("Something went wrong when retrieving an access token", error)
   );
 
-  app.set("view engine", "hbs");
-  app.set("views", __dirname + "/views");
-  app.use(express.static("public"));
-  hbs.registerPartials(__dirname + "/views/partials");
-  app.use(express.urlencoded({ extended: false }));
-  app.use(express.json());
+app.set("view engine", "hbs");
+app.set("views", __dirname + "/views");
+app.use(express.static("public"));
+hbs.registerPartials(__dirname + "/views/partials");
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
+// Handelbars
 
+hbs.registerHelper("msToSeconds", function (millis) {
+  var minutes = Math.floor(millis / 60000);
+  var seconds = ((millis % 60000) / 1000).toFixed(0);
+  return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+});
 
-  // Handelbars
+hbs.registerHelper("imageEmpty", function (images) {
+  if (images === undefined) {
+    return "https://www.nicomatic.com/themes/custom/jango_sub/img/no-image.png";
+  } else {
+    return images;
+  }
+});
 
-  hbs.registerHelper("msToSeconds", function (millis) {
-    var minutes = Math.floor(millis / 60000);
-    var seconds = ((millis % 60000) / 1000).toFixed(0);
-    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
-  });
-  
 // setting the spotify-api goes here:
 
 // Our routes go here:

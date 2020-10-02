@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-main {
+.home {
   background-image: url("../images/spotify.jpg");
   width: 100vw;
   height: 100vh;
@@ -17,9 +17,13 @@ body {
   /* background: linear-gradient(rgb(91, 87, 115), rgba(0, 0, 0, 1)); */
   height: 100%;
   color: white;
-  padding: 20px;
+  /* padding: 20px; */
   overflow-y: overlay;
   background-color: black;
+}
+
+main {
+  padding: 20px !important;
 }
 
 .login {
@@ -151,6 +155,7 @@ body {
   border-radius: 100%;
   height: 200px;
   width: 200px;
+  object-fit: cover;
 }
 
 /* ALBUM */
@@ -368,7 +373,7 @@ audio::-webkit-media-controls-toggle-closed-captions-button {
 /* HEADER SEARCH BAR */
 
 .header__container {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   width: 1200px;
@@ -384,7 +389,6 @@ audio::-webkit-media-controls-toggle-closed-captions-button {
   justify-content: space-between;
   /* margin-bottom: 30px; */
   width: 100%;
-
 }
 
 .header__left > input:focus {
@@ -415,7 +419,7 @@ audio::-webkit-media-controls-toggle-closed-captions-button {
   background-color: #1db954;
   border-color: #1db954;
   height: 48px;
-  border-radius: 0px 30px 30px 0px ;
+  border-radius: 0px 30px 30px 0px;
   padding: 0 30px;
 }
 
@@ -423,5 +427,4 @@ audio::-webkit-media-controls-toggle-closed-captions-button {
   background-color: #ffff;
   border-color: #1db954;
   color: #1db954;
-
 }

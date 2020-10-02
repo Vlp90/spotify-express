@@ -1,4 +1,8 @@
-    {{>searchBar}}
+
+<main>
+
+
+{{>searchBar}}
 <div class="artistResults__container">
     {{!-- <a href="/">Return</a> --}}
     <h3>
@@ -9,7 +13,8 @@
         {{#each artists.items}}
         <div class='artistResults__info'>
             <a href="/albums/{{this.id}}">
-                <img class='artistResults__infoImage' src="{{this.images.0.url}}" alt="Photo Artist" class="artist-img">
+                <img class='artistResults__infoImage' src="{{imageEmpty this.images.0.url}}" alt="Photo Artist" class="artist-img">
+
             </a>
             <h3>{{this.name}}</h3>
             <h4>Artiste</h4>
@@ -18,3 +23,4 @@
 
     </div>
 </div>
+</main>
