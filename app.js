@@ -104,3 +104,4 @@ app.get("/tracks/:albumId", (req, res, next) => {
 // app.listen(5000, () =>
 //   console.log("My Spotify project running on port 5000 🎧 🥁 🎸 🔊")
 // );
+module.exports = app;
